@@ -1,12 +1,12 @@
-package tukuru
+package id
 
 import "github.com/google/uuid"
 
 // UUID is UUID生成機
-type UUID struct {
+type UUIDTukuru struct {
 }
 
 // New is UUIDを生成して返す
-func (uuidTukuru *UUID) New() string {
+func (uuidTukuru *UUIDTukuru) New() string {
 	return uuid.NewString()
 }

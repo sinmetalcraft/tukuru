@@ -1,17 +1,17 @@
-package tukuru_test
+package id_test
 
 import (
 	"context"
 	"fmt"
 	"testing"
 
-	"github.com/sinmetalcraft/tukuru"
+	idtukuru "github.com/sinmetalcraft/tukuru/id"
 )
 
-func TestID_New(t *testing.T) {
+func TestTukuru_New(t *testing.T) {
 	ctx := context.Background()
 
-	idTukuru := tukuru.NewIDTukuru(ctx)
+	idTukuru := idtukuru.NewTukuru(ctx)
 	id := idTukuru.New()
 	if id == "" {
 		t.Fatal("ID is empty")
@@ -26,14 +26,14 @@ func (tukuru *testIDTukuru) New() string {
 	return tukuru.id
 }
 
-func ExampleID_New() {
+func ExampleTukuru_New() {
 	ctx := context.Background()
 
 	testIDTukuru := &testIDTukuru{
 		"testID",
 	}
 
-	idTukuru := tukuru.NewIDTukuru(ctx, tukuru.WithIDFactory(testIDTukuru))
+	idTukuru := idtukuru.NewTukuru(ctx, idtukuru.WithFactory(testIDTukuru))
 	id := idTukuru.New()
 	fmt.Println(id)
 	// Output: testID
